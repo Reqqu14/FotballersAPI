@@ -52,7 +52,7 @@ namespace FotballersAPI.Persistence.Context
             var entires = ChangeTracker
                 .Entries()
                 .Where(x => x.Entity is AuditableEntity &&
-                    x.State == EntityState.Added || x.State == EntityState.Modified);
+                    (x.State == EntityState.Added || x.State == EntityState.Modified));
 
             foreach (var entity in entires)
             {

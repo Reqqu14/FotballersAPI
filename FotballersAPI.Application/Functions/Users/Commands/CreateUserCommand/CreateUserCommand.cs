@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FotballersAPI.Application.Interfaces;
 using FotballersAPI.Domain.Data;
+using HashidsNet;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
@@ -26,12 +27,18 @@ namespace FotballersAPI.Application.Functions.Users.Commands.CreateUserCommand
             private readonly IMapper _mapper;
             private readonly IUserRepository _userRepository;
             private readonly IPasswordHasher<User> _passwordHasher;
+            private readonly IHashids _hashids;
 
-            public Handler(IMapper mapper, IUserRepository userRepository, IPasswordHasher<User> passwordHasher)
+            public Handler(
+                IMapper mapper, 
+                IUserRepository userRepository, 
+                IPasswordHasher<User> passwordHasher,
+                IHashids hashids)
             {
                 _mapper = mapper;
                 _userRepository = userRepository;
                 _passwordHasher = passwordHasher;
+                _hashids = hashids;
             }
             public async Task<Unit> Handle(CreateUserCommandRequest request, CancellationToken cancellationToken)
             {

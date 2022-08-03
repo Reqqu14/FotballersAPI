@@ -41,7 +41,7 @@ namespace FotballersAPI.Persistence.Repositories
         {
             return await _dbContext
                 .Set<Tentity>()
-                .FindAsync(id, cancellationToken);
+                .FindAsync(id);
         }
 
         public async Task<Tentity> UpdateAsync(Tentity entity, CancellationToken cancellationToken)
