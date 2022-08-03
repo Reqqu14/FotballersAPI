@@ -38,7 +38,7 @@ namespace FotballersAPI.Application.Infrastructure.Pipelines
 
             if (errors.Any())
             {
-                throw new ValidationException(errors);
+                throw new ValidationException(errors.Distinct());
             }
 
             return await next();

@@ -5,7 +5,6 @@ namespace FotballersAPI.Application.Functions.Users.Commands.CreateUserCommand
     public abstract class CreateUserCommandModelValidator<T> : AbstractValidator<T>
         where T : CreateUserCommandRequest
     {
-        private const string EmailPattern = "^\\S+@\\S+\\.\\S+$";
 
         protected CreateUserCommandModelValidator()
         {
@@ -26,9 +25,8 @@ namespace FotballersAPI.Application.Functions.Users.Commands.CreateUserCommand
                 .WithMessage("Password and confirm password must be the same");
 
             RuleFor(x => x.Email)
-                .NotEmpty()
-                .Matches(EmailPattern)
-                .WithMessage($"{nameof(CreateUserCommandRequest.Email)} cannot be empty");
+                .EmailAddress()
+                .WithMessage($"{nameof(CreateUserCommandRequest.Email)} must be in valid format");
 
             RuleFor(x => x.DateOfBirth)
                 .Must(BeAValidDate)
