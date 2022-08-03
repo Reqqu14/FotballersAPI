@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using FotballersAPI.Application.Functions.Users;
+using FotballersAPI.Application.Infrastructure.Authentication;
 using FotballersAPI.Application.Infrastructure.Pipelines;
 using FotballersAPI.Domain.Data;
 using HashidsNet;
@@ -7,7 +8,9 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using System.Text;
 
 namespace FotballersAPI.Application
 {
@@ -23,6 +26,37 @@ namespace FotballersAPI.Application
 
             services.AddSingleton<IHashids>
                 (_ => new Hashids(configuration["Salt:HashSalt"], 11));
+
+            AddJwtToken(services, configuration);
+        }
+
+        private static void AddJwtToken(IServiceCollection services, IConfiguration configuration)
+        {
+            var authenticationSettings = new AuthenticationSettings();
+
+            configuration.GetSection("Authentication").Bind(authenticationSettings);
+
+            //Adding this object to DI to inject for generate token
+            services.AddSingleton(authenticationSettings);
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = "Bearer";
+                options.DefaultScheme = "Bearer";
+                options.DefaultChallengeScheme = "Bearer";
+
+            }).AddJwtBearer(cfg =>
+            {
+                cfg.RequireHttpsMetadata = false;
+                cfg.SaveToken = true;
+
+                cfg.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = authenticationSettings.JwtIssuer,
+                    ValidAudience = authenticationSettings.JwtIssuer,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authenticationSettings.JwtKey)),
+                };
+            });
         }
     }
 }

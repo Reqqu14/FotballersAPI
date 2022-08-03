@@ -38,7 +38,7 @@ namespace FotballersAPI.Application.Functions.Users.Commands.LoginCommand
                         ? true
                         : false;
                 })
-                .WithMessage($"Provided password is incorrect");
+                .WithMessage($"Provided password is incorrect or user does not exists");
         }
     }
 }

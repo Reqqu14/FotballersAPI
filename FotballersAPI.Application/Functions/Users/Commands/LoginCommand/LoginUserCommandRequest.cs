@@ -2,7 +2,7 @@
 
 namespace FotballersAPI.Application.Functions.Users.Commands.LoginCommand
 {
-    public class LoginUserCommandRequest : IRequest<Unit>
+    public class LoginUserCommandRequest : IRequest<LoginUserCommandResponse>
     {
         public string Login { get; set; }
 
