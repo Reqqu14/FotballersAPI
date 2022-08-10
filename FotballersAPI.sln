@@ -5,23 +5,27 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C8D0641F-BB1E-4328-8EC1-D611F2675E62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FotballersAPI.Application", "FotballersAPI.Application\FotballersAPI.Application.csproj", "{42D7279B-22DF-451F-A4B5-A9D66DE85310}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FotballersAPI.Application", "FotballersAPI.Application\FotballersAPI.Application.csproj", "{42D7279B-22DF-451F-A4B5-A9D66DE85310}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FotballersAPI.Domain", "FotballersAPI.Domain\FotballersAPI.Domain.csproj", "{64EA3960-1846-4628-806E-21F22991ABC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FotballersAPI.Domain", "FotballersAPI.Domain\FotballersAPI.Domain.csproj", "{64EA3960-1846-4628-806E-21F22991ABC5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{A874516B-DDBE-47C6-AC4C-9DEB121DFA00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FotballersAPI.Persistence", "FotballersAPI.Persistence\FotballersAPI.Persistence.csproj", "{50AC0AE2-256A-480C-B9C5-62C819D1AD83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FotballersAPI.Persistence", "FotballersAPI.Persistence\FotballersAPI.Persistence.csproj", "{50AC0AE2-256A-480C-B9C5-62C819D1AD83}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{DB389DB1-31D0-4C75-B5ED-8E04CEDB0BCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FotballersAPI.WebHost", "FotballersAPI.WebHost\FotballersAPI.WebHost.csproj", "{37018A01-82A1-4350-83E8-B55462826E11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FotballersAPI.WebHost", "FotballersAPI.WebHost\FotballersAPI.WebHost.csproj", "{37018A01-82A1-4350-83E8-B55462826E11}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D9E23878-6747-47A8-A3B9-AC0933001E39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FotballersAPI.Application.Tests", "FotballersAPI.Application.Tests\FotballersAPI.Application.Tests.csproj", "{5BB313D3-AF5C-4EE4-90A6-A8836148A2B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FotballersAPI.Application.Tests", "FotballersAPI.Application.Tests\FotballersAPI.Application.Tests.csproj", "{5BB313D3-AF5C-4EE4-90A6-A8836148A2B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FotballersAPI.Persistence.Tests", "FotballersAPI.Persistence.Tests\FotballersAPI.Persistence.Tests.csproj", "{DB1D4CAD-ED60-4A45-9C1B-FF5A45E90F02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FotballersAPI.Persistence.Tests", "FotballersAPI.Persistence.Tests\FotballersAPI.Persistence.Tests.csproj", "{DB1D4CAD-ED60-4A45-9C1B-FF5A45E90F02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{48B4B15C-89DE-41D6-B146-2477F354E648}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{D1E34723-4435-4B81-A192-F91CDB155A39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +57,10 @@ Global
 		{DB1D4CAD-ED60-4A45-9C1B-FF5A45E90F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB1D4CAD-ED60-4A45-9C1B-FF5A45E90F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB1D4CAD-ED60-4A45-9C1B-FF5A45E90F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1E34723-4435-4B81-A192-F91CDB155A39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1E34723-4435-4B81-A192-F91CDB155A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1E34723-4435-4B81-A192-F91CDB155A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1E34723-4435-4B81-A192-F91CDB155A39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +72,7 @@ Global
 		{37018A01-82A1-4350-83E8-B55462826E11} = {DB389DB1-31D0-4C75-B5ED-8E04CEDB0BCE}
 		{5BB313D3-AF5C-4EE4-90A6-A8836148A2B7} = {D9E23878-6747-47A8-A3B9-AC0933001E39}
 		{DB1D4CAD-ED60-4A45-9C1B-FF5A45E90F02} = {D9E23878-6747-47A8-A3B9-AC0933001E39}
+		{D1E34723-4435-4B81-A192-F91CDB155A39} = {48B4B15C-89DE-41D6-B146-2477F354E648}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7738AF12-4373-4D1D-B2D1-D0392BCE3F6F}

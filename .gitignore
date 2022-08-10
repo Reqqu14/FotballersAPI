@@ -363,3 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 /FotballersAPI.WebHost/appsettings.Development.json
 /FotballersAPI.WebHost/appsettings.json
+/EmailService/appsettings.Development.json
+/EmailService/appsettings.json

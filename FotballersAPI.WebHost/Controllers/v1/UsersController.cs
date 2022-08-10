@@ -1,6 +1,7 @@
 ﻿using FotballersAPI.Application.Functions.Users.Commands.ActivateUserAccountCommand;
 using FotballersAPI.Application.Functions.Users.Commands.CreateUserCommand;
 using FotballersAPI.Application.Functions.Users.Commands.LoginCommand;
+using FotballersAPI.Application.Functions.Users.Commands.ResendActivateLinkCommand;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,6 +37,16 @@ namespace FotballersAPI.WebHost.Controllers.v1
         {            
             await Mediator.Send(new ActivateUserAccountRequest { UserId = hashedId});
             return Ok();
+        }        
+
+        [HttpPost]
+        [Route("ResendActivateLink/{email}")]
+        [ProducesResponseType(typeof(Unit), 201)]
+        public async Task<IActionResult> ResendActivateEmail([FromRoute] string email)
+        {
+            await Mediator.Send(new ResendActivateLinkCommandRequest { Email = email });
+            return Ok();
         }
+
     }
 }

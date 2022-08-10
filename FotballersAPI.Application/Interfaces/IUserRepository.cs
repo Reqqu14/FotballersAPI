@@ -10,5 +10,7 @@ namespace FotballersAPI.Application.Interfaces
         Task<bool> CheckEmailExistsInDatabaseAsync(string email, CancellationToken cancellationToken);
 
         Task<User> GetUserByLoginAsync(string login, CancellationToken cancellationToken);
+
+        Task<User> GetUserByEmailAsync(string email, CancellationToken cancellationToken);
     }
 }

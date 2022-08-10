@@ -23,6 +23,11 @@ namespace FotballersAPI.Persistence.Repositories
             return await _dbContext.Users.AnyAsync(x => x.Username == username, cancellationToken);
         }
 
+        public async Task<User> GetUserByEmailAsync(string email, CancellationToken cancellationToken)
+        {
+            return await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == email, cancellationToken);
+        }
+
         public async Task<User> GetUserByLoginAsync(string login, CancellationToken cancellationToken)
         {
             return await _dbContext.Users.FirstOrDefaultAsync(x => x.Username == login, cancellationToken);

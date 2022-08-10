@@ -27,11 +27,6 @@ namespace FotballersAPI.Application.Functions.Users.Commands.LoginCommand
                 {
                     var user = await _userRepository.GetUserByLoginAsync(request.Login, cancellationToken);
 
-                    if(user is null)
-                    {
-                        return false;
-                    }
-
                     var correctPassword = _passwordHasher.VerifyHashedPassword(user, user.Password, request.Password);
 
                     return correctPassword == PasswordVerificationResult.Success

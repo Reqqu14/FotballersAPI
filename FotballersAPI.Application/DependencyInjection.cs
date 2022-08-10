@@ -3,7 +3,9 @@ using FotballersAPI.Application.Functions.Users;
 using FotballersAPI.Application.Infrastructure.Authentication;
 using FotballersAPI.Application.Infrastructure.Pipelines;
 using FotballersAPI.Domain.Data;
+using FotballersAPI.Domain.Data.RabbitMqConfiguration;
 using HashidsNet;
+using MassTransit;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +30,8 @@ namespace FotballersAPI.Application
                 (_ => new Hashids(configuration["Salt:HashSalt"], 11));
 
             AddJwtToken(services, configuration);
+
+            AddRabbitMq(services, configuration);
         }
 
         private static void AddJwtToken(IServiceCollection services, IConfiguration configuration)
@@ -57,6 +61,27 @@ namespace FotballersAPI.Application
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authenticationSettings.JwtKey)),
                 };
             });
+        }
+
+        private static void AddRabbitMq(IServiceCollection services, IConfiguration configuration)
+        {
+            var rabbitMqConfiguration = new RabbitMqConfiguration();
+
+            configuration.GetSection("RabbitMqConfiguration").Bind(rabbitMqConfiguration);
+
+            services.AddSingleton(rabbitMqConfiguration);
+
+            services.AddMassTransit(x =>
+            {
+                x.UsingRabbitMq((context, cfg) =>
+                {
+                    cfg.Host(rabbitMqConfiguration.Host, "/", h =>
+                    {
+                        h.Username(rabbitMqConfiguration.Login);
+                        h.Password(rabbitMqConfiguration.Password);
+                    });
+                });
+            }); 
         }
     }
 }
