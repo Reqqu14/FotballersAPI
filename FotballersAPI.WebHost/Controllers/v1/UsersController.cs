@@ -2,6 +2,7 @@
 using FotballersAPI.Application.Functions.Users.Commands.CreateUserCommand;
 using FotballersAPI.Application.Functions.Users.Commands.LoginCommand;
 using FotballersAPI.Application.Functions.Users.Commands.ResendActivateLinkCommand;
+using FotballersAPI.Application.Functions.Users.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,15 @@ namespace FotballersAPI.WebHost.Controllers.v1
     [ApiController]
     public class UsersController : BaseApiController
     {
+        [HttpGet]
+        [Route("Users")]
+        [ProducesResponseType(typeof(GetUsersQueryResponse), 200)]
+        public async Task<IActionResult> GetUsers()
+        {
+            var response = await Mediator.Send(new GetUsersQueryRequest());
+            return Ok(response);
+        }
+
         [HttpPost]
         [Route("Create")]
         [ProducesResponseType(typeof(Unit), 201)]

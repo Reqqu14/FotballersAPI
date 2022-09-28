@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FotballersAPI.Persistence.T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{48B4B15C-89DE-41D6-B146-2477F354E648}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{D1E34723-4435-4B81-A192-F91CDB155A39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailService", "EmailService\EmailService.csproj", "{D1E34723-4435-4B81-A192-F91CDB155A39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FotballerAPI.Helpers", "FotballerAPI.Helpers\FotballerAPI.Helpers.csproj", "{1690D742-6F2B-496D-B043-BBBA87C9E356}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{D1E34723-4435-4B81-A192-F91CDB155A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1E34723-4435-4B81-A192-F91CDB155A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1E34723-4435-4B81-A192-F91CDB155A39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1690D742-6F2B-496D-B043-BBBA87C9E356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1690D742-6F2B-496D-B043-BBBA87C9E356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1690D742-6F2B-496D-B043-BBBA87C9E356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1690D742-6F2B-496D-B043-BBBA87C9E356}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
