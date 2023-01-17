@@ -11,6 +11,16 @@ namespace FotballersAPI.Application.Functions.Users.Commands.ActivateUserAccount
 
         }
 
+        public class BusinessValidator : ActivateUserAccountBusinessValidator<ActivateUserAccountRequest>
+        {
+            public BusinessValidator(
+                IUserRepository userRepository,
+                IHashids hashids) : base(userRepository, hashids)
+            {
+
+            }
+        }
+
         public class Handler : IRequestHandler<ActivateUserAccountRequest, Unit>
         {
             private readonly IUserRepository _userRepository;

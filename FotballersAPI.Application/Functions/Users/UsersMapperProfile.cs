@@ -3,7 +3,6 @@ using FotballerAPI.Helpers;
 using FotballersAPI.Application.Functions.Users.Commands.CreateUserCommand;
 using FotballersAPI.Application.Functions.Users.Dto;
 using FotballersAPI.Domain.Data;
-using FotballersAPI.Domain.Enums;
 using FotballersAPI.Domain.Events.Users;
 
 namespace FotballersAPI.Application.Functions.Users
